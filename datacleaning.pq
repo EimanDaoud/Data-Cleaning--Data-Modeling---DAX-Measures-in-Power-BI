@@ -1,6 +1,6 @@
 let
 // --- Load Data ---
-    Source = Csv.Document(File.Contents(""),[Delimiter=",", Columns=17, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+    Source = Csv.Document(Web.Contents("https://raw.githubusercontent.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/refs/heads/main/Sales%20Records.csv"),[Delimiter=",", Columns=17, Encoding=65001, QuoteStyle=QuoteStyle.None]),
     #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 
 // --- Data Types ---
@@ -14,8 +14,10 @@ let
     #"Capitalized Each Word" = Table.TransformColumns(#"Trimmed Text",{{"Customer_Name", Text.Proper, type text}, {"Segment", Text.Proper, type text}, {"Region", Text.Proper, type text}, {"City", Text.Proper, type text}, {"Category", Text.Proper, type text}, {"Payment_Type", Text.Proper, type text}, {"Sales_Rep", Text.Proper, type text}}),
 
 // --- Standardize Categorical Values ---
-    #"Region Standarized" = Table.ReplaceValue(#"Capitalized Each Word","Redsea","Red Sea",Replacer.ReplaceText,{"Region"}),
-    #"Payment Standarized" = Table.ReplaceValue(#"Region Standarized","Bankk","Bank",Replacer.ReplaceText,{"Payment_Type"}),
+    #"Region Standarized1" = Table.ReplaceValue(#"Capitalized Each Word","Redsea","Red Sea",Replacer.ReplaceText,{"Region"}),
+    #"Region Standarized2" = Table.ReplaceValue(#"Region Standarized1","Kasala","Kassala",Replacer.ReplaceText,{"Region"}),
+    #"Region Standarized3" = Table.ReplaceValue(#"Region Standarized2","Khartom","Khartoum",Replacer.ReplaceText,{"Region"}),
+    #"Payment Standarized" = Table.ReplaceValue(#"Region Standarized3","Bankk","Bank",Replacer.ReplaceText,{"Payment_Type"}),
     
 // --- City Standardization --- 
     #"City Standardized" = Table.AddColumn(#"Payment Standarized", "City_clean", each if List.Contains({"Kassala", "Kasala"}, [City]) then "Kassala"
