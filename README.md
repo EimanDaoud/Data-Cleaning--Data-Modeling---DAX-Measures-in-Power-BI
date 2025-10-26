@@ -105,7 +105,7 @@ Before cleaning, i kept one copy of the raw dataset as a reference.
 | 12       | **Final Data Type Review**                                                         | Confirm correct types for Date, Decimal, Whole Number, Text columns                                        | Ensures smooth loading in Power BI and avoids modeling issues                         |
 
 ### **2.3 Building the Star Schema**
-![Total Sales by Fat Content](https://github.com/EimanDaoud/Blinkit-Project/blob/main/Images/LF%20Vs%20Regular.png?raw=true)
+![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/Star%20Schema.png)
 Charts codes? Check them out here: [Chart Python Code](charts.ipynb).
 
 
