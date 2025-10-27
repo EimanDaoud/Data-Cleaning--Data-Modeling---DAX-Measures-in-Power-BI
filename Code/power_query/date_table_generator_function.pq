@@ -10,7 +10,7 @@ let
     // Convert to table
     TableFromList = Table.FromList(Source, Splitter.SplitByNothing(), {"Date"}, null, ExtraValues.Error),
 
-    // Add columns
+    // Add needed columns
     AddYear = Table.AddColumn(TableFromList, "year", each Date.Year([Date]), Int64.Type),
     AddMonthNumber = Table.AddColumn(AddYear, "month number", each Date.Month([Date]), Int64.Type),
     AddMonth = Table.AddColumn(AddMonthNumber, "month", each Date.MonthName([Date])),
@@ -22,7 +22,7 @@ let
     AddWeekdayNumber = Table.AddColumn(AddDayNameShort, "weekday number", each Date.DayOfWeek([Date], Day.Sunday) + 1, Int64.Type),
     AddQuarter = Table.AddColumn(AddWeekdayNumber, "quarter", each Date.QuarterOfYear([Date]), Int64.Type),
 
-    // Organize columns neatly
+    // Organize columns
     Final = Table.ReorderColumns(AddQuarter, {
         "Date", "year", "month", "month number", "month short", 
         "month year", "day", "day name", "day name short", 

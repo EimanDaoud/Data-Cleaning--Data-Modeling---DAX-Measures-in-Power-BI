@@ -1,6 +1,6 @@
 let
 // --- Load Data ---
-    Source = Csv.Document(Web.Contents("https://raw.githubusercontent.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/refs/heads/main/Sales%20Records.csv"),[Delimiter=",", Columns=17, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+    Source = Csv.Document(Web.Contents("https://raw.githubusercontent.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/refs/heads/main/Data/Raw%20Data/Sales%20Records.csv"),[Delimiter=",", Columns=17, Encoding=65001, QuoteStyle=QuoteStyle.None]),
     #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 
 // --- Data Types ---
