@@ -9,16 +9,16 @@
 
 **Objective:**
 
-To clean, model, sales data using Power BI — transforming a raw dataset into a professional Star Schema Data Model 
+To clean and model sales data using Power BI by transforming a raw dataset into a professional Star Schema Data Model 
 
 
 **Skills Demonstrated**
 
-* Data Cleaning using **Power Query**
+* **Data Cleaning** using Power Query
 
-* Data Modeling and Star **Schema Design**
+* **Data Modeling** and Star Schema Design
 
-* **DAX Measures** and KPIs
+* DAX Measures and **KPIs**
 
 
 
@@ -27,30 +27,17 @@ To clean, model, sales data using Power BI — transforming a raw dataset into a
 
 * Open Power BI Desktop.
 
-* Go to Home → Get Data → Text/CSV.
+* Go to Home → Get Data → Web.
 
-* Import the file sudan_sales_raw.csv.
-
-* Click Load to bring the data into Power BI.
+* URL: https://raw.githubusercontent.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/refs/heads/main/Data/Raw%20Data/Sales%20Records.csv
 
 * Confirm that the dataset contains 3,000 sales records and 21 columns
 
-### **1.2 Duplicate the Query for Cleaning**
-
-Before cleaning, i kept one copy of the raw dataset as a reference.
-
-* Open Power Query Editor
-→ Right-click the query sales_raw
-→ Select Duplicate
-→ Rename it to Sales_Clean
-
-💡 Keeping the raw data untouched ensures you can always refer back to the original source during cleaning and transformation.
-
 ### **1.3 Data Dictionary**
-| **Column Name** | **Description**                                            | **Data Type**  | **Example Value** |
+| **Column Name** | **Description**                                            | **Detected Data Type**  | **Example Value** |
 | --------------- | ---------------------------------------------------------- | -------------- | ----------------- |
 | `Order_ID`      | Unique identifier for each sales transaction               | Text           | SUD-2025-1452     |
-| `Order_Date`    | Date when the order was placed                             | Date           | 2025-03-18        |
+| `Order_Date`    | Date when the order was placed                             | Text           | 2025-03-18        |
 | `Customer_Name` | Name of the customer who made the purchase                 | Text           | Ahmed Musa        |
 | `Segment`       | Customer segment (Individual, Small Business, Enterprise)  | Text           | Individual        |
 | `Region`        | Sudanese region where the sale occurred                    | Text           | Red Sea           |
@@ -58,36 +45,20 @@ Before cleaning, i kept one copy of the raw dataset as a reference.
 | `Product_ID`    | Unique product identifier                                  | Text           | PRD-301           |
 | `Product_Name`  | Name or description of the sold product                    | Text           | HP LaserJet P1102 |
 | `Category`      | Product category (Electronics, Furniture, Office Supplies) | Text           | Office Supplies   |
-| `Quantity`      | Number of units sold                                       | Whole Number   | 5                 |
-| `Unit_Price`    | Price per unit in Sudanese Pounds (SDG)                    | Decimal Number | 15000             |
-| `Total_Sales`   | Total sales amount (Quantity × Unit_Price)                 | Decimal Number | 75000             |
+| `Quantity`      | Number of units sold                                       | Text           | 5                 |
+| `Unit_Price`    | Price per unit in Sudanese Pounds (SDG)                    | Text           | 15000             |
+| `Total_Sales`   | Total sales amount (Quantity × Unit_Price)                 | Text           | 75000             |
 | `Payment_Type`  | Payment method used (Cash, Bank)                           | Text           | Cash              |
-| `Customer_ID`   | Unique customer code                                       | Text           | CUST-1209         |
+| `Cost`          | Total Cost                                                 | Text           | CUST-1209         |
 | `Sales_Rep`     | Name of the sales representative handling the transaction  | Text           | Fatima Khalid     |
-| `Discount`      | Discount applied on the transaction (if any)               | Decimal Number | 5                 |
-| `Profit`        | Calculated profit per order (after discount)               | Decimal Number | 10500             |
+| `Discount`      | Discount applied on the transaction (if any)               | Text           | 5                 |
+| `Profit`        | Calculated profit per order (after discount)               | Text           | 10500             |
 
 ## **Step 2: Data Cleaning**
 
-
-
-### **2.2 Data Profiling**
-
-**Objective:** Assess data quality before cleaning to identify potential issues.
-
-| **Check**               | **Action in Power Query**                                          | **Purpose / Insights**                                               |
-| ----------------------- | ------------------------------------------------------------------ | -------------------------------------------------------------------- |
-| **Row & Column Count**  | Confirm total number of rows (≈ 3,000) and columns (16)            | Ensures the dataset loaded completely                                |
-| **Column Quality**      | *View → Column Quality*                                            | Shows % of valid, error, and empty values per column                 |
-| **Column Distribution** | *View → Column Distribution*                                       | Displays value frequencies and helps identify duplicates or outliers |
-| **Column Profile**      | *View → Column Profile*                                            | Provides summary statistics for numeric fields (min, max, average)   |
-| **Unique Value Check**  | Review `Order_ID`, `Customer_ID`, and `Product_ID` columns         | Detects potential duplicate or missing keys                          |
-| **Missing Values**      | Observe null counts in columns like `City`, `Segment`, or `Profit` | Helps plan replacement or removal strategies                         |
-
-
-### **2.3 Cleaning Steps Summary**
-**➡️ View the full Power Query M Code:**  
-[`datacleaning.pq`](datacleaning.pq)
+### **2.1 Cleaning Steps Summary**
+**➡️ View the full cleaning Power Query M Code:**  
+[`datacleaning.pq`](Code/power_query/01_staging_sales.pq)
 
 | **Step** | **Action in Power Query**                                                          | **Purpose / Description**                                                                                  | **Result / Notes**                                                                    |
 | -------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
@@ -105,9 +76,6 @@ Before cleaning, i kept one copy of the raw dataset as a reference.
 | 12       | **Final Data Type Review**                                                         | Confirm correct types for Date, Decimal, Whole Number, Text columns                                        | Ensures smooth loading in Power BI and avoids modeling issues                         |
 
 ### **2.3 Building the Star Schema**
-![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/Star%20Schema.png)
-Charts codes? Check them out here: [Chart Python Code](charts.ipynb).
-
 
 After completing the data cleaning steps, we used the cleaned table (Sales_Clean) as the source for constructing the **dimension tables and the fact table**.
 
@@ -128,14 +96,14 @@ We created reference queries from Sales_Clean and extracted only the necessary d
 
 * A separate Date Dimension was required for time intelligence calculations.
 
-* Used Invoke Function to generate a full calendar table
+* Used a Function to generate a full calendar table
 
 * Converted necessary columns to Date type
 
 * Added Year, Month, Quarter, Day Name, etc.
 
 **➡️ For the Date Table function code, click here**
-[`datacleaning.pq`](datacleaning.pq)
+[`datacleaning.pq`](Code/power_query/07_date_table_generator_function.pq)
 
 
 ### 3. Build the Fact Table
@@ -163,8 +131,7 @@ We created reference queries from Sales_Clean and extracted only the necessary d
 
 * Relationships are Many-to-One, with filters flowing from Dimension → Fact to maintain star schema behavior.
 
-![Total Sales by Fat Content](https://github.com/EimanDaoud/Blinkit-Project/blob/main/Images/LF%20Vs%20Regular.png?raw=true)
-Charts codes? Check them out here: [Chart Python Code](charts.ipynb).
+![Total Sales by Fat Content](Images/Data Model.png)
 
 
 
