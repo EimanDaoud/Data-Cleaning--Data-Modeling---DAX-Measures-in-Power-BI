@@ -121,6 +121,7 @@ We created reference queries from Sales_Clean and extracted only the necessary d
 (ensuring the fact table contains measurements + foreign keys only)
 
 #### This resulted in a clean, concise fact table structure ready for reporting.
+![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/Data%20Model.png)
 
 ### 4. Establish Relationships in the Data Model
 
@@ -137,7 +138,7 @@ We created reference queries from Sales_Clean and extracted only the necessary d
 
 
 
-![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/Data%20Model.png)
+
 
 
 
