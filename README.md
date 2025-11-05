@@ -131,7 +131,7 @@ We created reference queries from Sales_Clean and extracted only the necessary d
 
 * Relationships are Many-to-One, with filters flowing from Dimension → Fact to maintain star schema behavior.
 
-![Total Sales by Fat Content](Images/Data Model.png)
+![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/Data%20Model.png)
 
 
 
