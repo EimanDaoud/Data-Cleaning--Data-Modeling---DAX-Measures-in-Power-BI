@@ -78,6 +78,7 @@ To clean and model sales data using Power BI by transforming a raw dataset into 
 ### **2.3 Building the Star Schema**
 
 After completing the data cleaning steps, we used the cleaned table (Sales_Clean) as the source for constructing the **dimension tables and the fact table**.
+![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/Fact%20and%20Dim%20tables.png)
 
 ### 1. Create Dimension Tables
 
@@ -130,19 +131,23 @@ We created reference queries from Sales_Clean and extracted only the necessary d
 * Connected DimDate[Date] → Fact_Sales[Date]
 
 * Relationships are Many-to-One, with filters flowing from Dimension → Fact to maintain star schema behavior.
+![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/Relationships.png)
+
+
+
 
 ![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/Data%20Model.png)
 
 ![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/DimDate%20FactSales%20Relationship.png)
 
-![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/Fact%20and%20Dim%20tables.png)
 
-![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/Relationships.png)
 
-![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/data%20tables.png)
+
+
+
 
 ![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/star%20schema.png)
-
+![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/data%20tables.png)
 
 
 
