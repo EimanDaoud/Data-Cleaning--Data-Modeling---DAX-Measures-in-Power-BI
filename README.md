@@ -133,15 +133,15 @@ We created reference queries from Sales_Clean and extracted only the necessary d
 
 ![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/Data%20Model.png)
 
-![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/Data%20Model.png)
+![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/DimDate%20FactSales%20Relationship.png)
 
-![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/Data%20Model.png)
+![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/Fact%20and%20Dim%20tables.png)
 
-![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/Data%20Model.png)
+![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/Relationships.png)
 
-![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/Data%20Model.png)
+![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/data%20tables.png)
 
-![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/Data%20Model.png)
+![Total Sales by Fat Content](https://github.com/EimanDaoud/Data-Cleaning--Data-Modeling---DAX-Measures-in-Power-BI/blob/main/Images/star%20schema.png)
 
 
 
