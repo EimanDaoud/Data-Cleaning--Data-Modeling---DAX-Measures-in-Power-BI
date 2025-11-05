@@ -5,7 +5,7 @@
 
  **Dataset:** Custom-generated raw sales data (3,000 rows) using Python representing transactions from Khartoum, Omdurman, Port Sudan, and Kassala.
 
- [Python Code for genrating the dataset](https://www.kaggle.com/datasets/arunkumaroraon/blinkit-grocery-dataset/data)
+ [Python Code for genrating the dataset](Code/python)
 
 **Objective:**
 
