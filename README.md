@@ -5,7 +5,7 @@
 
  **Dataset:** Custom-generated raw sales data (3,000 rows) using Python representing transactions from Khartoum, Omdurman, Port Sudan, and Kassala.
 
- [Python Code for genrating the dataset](Code/python)
+ [Python Code for genrating the dataset](Code/python/generate_dataset.ipynb)
 
 **Objective:**
 
